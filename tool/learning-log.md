@@ -1,22 +1,16 @@
 # Tool Learning Log
 
-Tool: **X**
+Tool: Aframe
 
-Project: **X**
+Project: A 3d video game
 
 ---
 
-X/X/X:
-* Text
+10/23/23:
+ 
+* I used <a href = "https://aframe.io/">Aframe</a> and <a href = "https://threejs.org/">Three.js</a>
+* I used an aframe code, put it to jsbin, and then replace the shapes with a stick figure.
+* I have no challenges for now.
+* I don't have any questions yet.
+* I will try to tinker with a code on three.js
 
-X/X/X:
-* Text
-
-
-<!-- 
-* Links you used today (websites, videos, etc)
-* Things you tried, progress you made, etc
-* Challenges, a-ha moments, etc
-* Questions you still have
-* What you're going to try next
--->
