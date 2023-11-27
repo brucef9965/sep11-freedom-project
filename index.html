@@ -4,26 +4,94 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" type="text/css" />
         <style>
             /* CSS */
-            
+
         </style>
-        
+
         <title>Title</title>
     </head>
     <body>
         <!-- HTML -->
-        
-        
+        <a-scene>
+            <a-sphere random-color></a-sphere>
+            <a-obj-model src="model.obj" random-color></a-obj-model>
+            <a-entity geometry="primitive: box; depth: 0.5; height: 0.5; width: 0.5"
+                      material="shader: standard"
+                      position="0 0.5 -2"
+                      random-color
+                      snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"></a-entity>
+            <a-assets>
+                <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+                <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+            </a-assets>
+
+            <a-cylinder id ="ground" src="#groundTexture" radius="32" height="0.1"></a-cylinder>
+
+            <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky>
+
+            <a-entity mixin="voxel" position="-1 0 -2"></a-entity>
+            <a-entity mixin="voxel" position="0 0 -2"></a-entity>
+            <a-entity mixin="voxel" position="0 1 -2"
+                animation="property: rotation; to: 0 360 0; loop: true"></a-entity>
+            <a-entity mixin="voxel" position="1 0 -2"></a-entity>
+
+            <a-entity id="player">
+                <a-entity id="teleHand" hand-controls="hand: left" blink-controls="collisionEntities: [mixin='voxel'], #ground"></a-entity>
+                <a-entity id="blockHand" hand-controls="hand: right" laser-controls raycaster="near: 0.5" intersection-spawn="event: click; mixin: voxel"></a-entity>
+                <a-camera>
+                    <a-cursor intersection-spawn="event: click; mixin: voxel"></a-cursor>
+                </a-camera>
+              </a-entity>
+        </a-scene>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- <script src="script.js"></script> -->
         <script>
             // JS
-            
-            
+            AFRAME.registerComponent('random-color', {
+              dependecies: ['material'],
+
+              init: function () {
+                // Set material component's color property to a random color.
+                this.el.setAttribute('material', 'color', getRandomColor())
+             }
+           });
+
+           function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+           }
+
+           document.querySelector('#blockHand').addEventListener(`click`, function (evt) {
+  // Create a blank entity.
+  var newVoxelEl = document.createElement('a-entity');
+
+  // Use the mixin to make it a voxel.
+  newVoxelEl.setAttribute('mixin', 'voxel');
+
+  // Get normal of the face of intersection and scale it down a bit
+  var normal = evt.detail.intersection.face.normal;
+  normal.multiplyScalar(0.25);
+
+  // Get the position of the intersection and add our scaled normal
+  var position = evt.detail.intersection.point;
+  position.add(normal);
+
+  // Set the position using intersection point. The `snap` component above which
+  // is part of the mixin will snap it to the closest half meter.
+  newVoxelEl.setAttribute('position', position);
+
+  // Add to the scene with `appendChild`.
+  this.appendChild(newVoxelEl);
+});
         </script>
     </body>
 </html>
