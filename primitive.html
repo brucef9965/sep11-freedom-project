@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <style>
+            /* CSS */
+
+        </style>
+
+        <title>Primitive</title>
+    </head>
+    <body>
+        <!-- HTML -->
+        <a-scene background="color: black">
+            <a-box color="midnightblue" position="0 2.5 -10" height="2"  depth="2 "width="30"></a-box>
+            <a-box color="midnightblue" position="-14 0.5 -10" height="5"  depth="2 "width="2"></a-box>
+            <a-box color="midnightblue" position="14 0.5 -10" height="5"  depth="2 "width="2"></a-box>
+            <a-entity position="12 0 -10" animation="property: position; to: -12 0 -10; dur: 2000; easing: linear; loop: true; direction: alternate; rotate" >
+            <a-cylinder color="yellow" theta-start="50" theta-length="280" side="double" rotation="10 -90 90"></a-cylinder>
+            </a-entity>
+
+
+            <a-box color="midnightblue" position="0 -2.5 -10" height="2" depth="2" width="30"></a-box>
+        </a-scene>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script>
+
+        </script>
+    </body>
+</html>
