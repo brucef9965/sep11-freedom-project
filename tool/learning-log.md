@@ -24,12 +24,20 @@ Project: A 3d video game
     </head>
 </html>
 ```
-* So I learned how to use the basic for all of the primitives of <b>Aframe.</b> Since I studied them I decided to create a new html for primitives so that I can tinker and practice my creation until the freedom project
+* So I want to learn how to animate my 3D model below. So I decided to make a 3d structure where the primitives are moving. Some of these challenges is learning how to animate a certain primitive. I looked at an example of an <a-box></a-box> code being animated to rotate 360 degrees.
+```html
+<a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        <a-sphere position="5 0 0" color="mediumseagreen"></a-sphere>
+</a-entity>
+```
+* So I decided to create a component that moves back and returns into it's original position on repeat.
 ```html
 <a-scene background="color: black">
-    <!-- This is a shape of Pac Man in 2D -->
-    <a-cylinder color="yellow" theta-start="50" theta-length="280" side="double" position="0 0 -5" rotation="0 90 90"></a-cylinder>
-</a-scene>
+            <a-box color="midnightblue" position="0 2.5 -10" height="2"  depth="2 "width="30"></a-box>
+            <a-box color="midnightblue" position="-14 0.5 -10" height="5"  depth="2 "width="2"></a-box>
+            <a-box color="midnightblue" position="14 0.5 -10" height="5"  depth="2 "width="2"></a-box>
+            <a-cylinder position="12 0 -10" animation="property: position; to: -12 0 -10; repeat: indefinite; direction: alternate; dur: 2000; easing: linear; loop: true" color="yellow" theta-start="50" theta-length="280" side="double" rotation="10 -90 90"></a-cylinder>
+            <a-box color="midnightblue" position="0 -2.5 -10" height="2" depth="2" width="30"></a-box>
+        </a-scene>
 ```
-
 
