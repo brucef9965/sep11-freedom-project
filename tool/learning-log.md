@@ -30,14 +30,32 @@ Project: A 3d video game
         <a-sphere position="5 0 0" color="mediumseagreen"></a-sphere>
 </a-entity>
 ```
-* So I decided to create a component that moves back and returns into it's original position on repeat.
+* So I decided to create a component that moves back and forth from one place to another.
 ```html
 <a-scene background="color: black">
             <a-box color="midnightblue" position="0 2.5 -10" height="2"  depth="2 "width="30"></a-box>
             <a-box color="midnightblue" position="-14 0.5 -10" height="5"  depth="2 "width="2"></a-box>
             <a-box color="midnightblue" position="14 0.5 -10" height="5"  depth="2 "width="2"></a-box>
-            <a-cylinder position="12 0 -10" animation="property: position; to: -12 0 -10; repeat: indefinite; direction: alternate; dur: 2000; easing: linear; loop: true" color="yellow" theta-start="50" theta-length="280" side="double" rotation="10 -90 90"></a-cylinder>
+            <a-cylinder position="12 0 -10" animation="property: position; to: -12 0 -10; repeat: indefinite; dir: alternate; dur: 2000; easing: linear; loop: true" color="yellow" theta-start="50" theta-length="280" side="double" rotation="10 -90 90"></a-cylinder>
             <a-box color="midnightblue" position="0 -2.5 -10" height="2" depth="2" width="30"></a-box>
         </a-scene>
 ```
+---
+12/18/23: Learning Log 5
 
+* Since I learned how to animate my model I decided to get the same pac man component to do multiple animations. Now this is the code I tried. This code shows the difference between the duration of the pac man components while showing the direction of where it spins.
+```html
+<a-scene background="color: black">
+            <a-box color="blue" position="0 9 -10" height="2"  depth="2" width="30"></a-box>
+            <a-box color="blue" position="-14 0.5 -10" height="15"  depth="2 "width="2"></a-box>
+            <a-box color="blue" position="14 0.5 -10" height="15"  depth="2 "width="2"></a-box>
+            <a-box color="pink" position="0 9 -10" height="2" depth="2" width="6"></a-box>
+            <a-cylinder color="yellow" position="-12 6 -10" theta-start="130" theta-length="280" side="double" rotation="90 0 0" animation="property: position; to: 12 6 -10; dur: 1000; dir: alternate; easing: linear; loop: true"
+            animation__2="property: rotation; loop: true; to: 360 0 0 dur: 1000; easing: linear; dir: alternate"></a-cylinder>
+            <a-cylinder color="yellow" position="-12 0 -10" theta-start="130" theta-length="280" side="double" rotation="90 0 0" animation="property: position; to: 12 0 -10; dur: 2000; dir: alternate; easing: linear; loop: true"
+            animation__2="property: rotation; loop: true; to: 0 360 0 dur: 2000; easing: linear; dir: alternate"></a-cylinder>
+            <a-cylinder color="yellow" position="-12 -5 -10" theta-start="130" theta-length="280" side="double" rotation="90 0 0" animation="property: position; to: 12 -5 -10; dur: 3000; dir: alternate; easing: linear; loop: true"
+            animation__2="property: rotation; loop: true; to: 0 0 360 dur: 3000; easing: linear; dir: alternate"></a-cylinder>
+            <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30"></a-box>
+        </a-scene>
+``` 
