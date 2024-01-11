@@ -17,16 +17,16 @@
     <body>
         <!-- HTML -->
         <a-scene background="color: black">
-            <a-box color="blue" position="-9 9 -10" height="2"  depth="2" width="12" animation="property: rotation; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
-            <a-box color="blue" position="9 9 -10" height="2"  depth="2" width="12" animation="property: rotation; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
-            <a-box color="blue" position="-14 0.5 -10" height="15"  depth="2 "width="2" animation="property: rotation; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
-            <a-box color="blue" position="14 0.5 -10" height="15"  depth="2 "width="2" animation="property: rotation; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
-            <a-box color="pink" position="0 9 -10" height="2" depth="2" width="6" animation="property: rotation; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
+            <a-box color="blue" position="-9 9 -10" height="2"  depth="2" width="12" animation="property: position; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
+            <a-box color="blue" position="9 9 -10" height="2"  depth="2" width="12" animation="property: position; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
+            <a-box color="blue" position="-14 0.5 -10" height="15"  depth="2 "width="2" animation="property: position; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
+            <a-box color="blue" position="14 0.5 -10" height="15"  depth="2 "width="2" animation="property: position; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
+            <a-box color="pink" position="0 9 -10" height="2" depth="2" width="6" animation="property: position; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
 
             <a-cylinder color="yellow" position="0 0 -10" theta-start="130" theta-length="280" side="double" rotation="90 0 0"
-            animation="property: rotation; loop: true; to: 0 360 0 dur: 2000; easing: linear; dir: alternate"></a-cylinder>
+            animation="property: rotation; loop: false; to: 270 0 270 dur: 2000; easing: linear; dir: normal"></a-cylinder>
 
-            <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30" animation="property: rotation; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
+            <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30" animation="property: position; loop: true; to: 0 180 0 dur: 2000; easing: linear; dir: alternate"></a-box>
         </a-scene>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- <script src="script.js"></script> -->
