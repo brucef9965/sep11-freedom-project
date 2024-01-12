@@ -59,3 +59,22 @@ Project: A 3d video game
             <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30"></a-box>
         </a-scene>
 ``` 
+---
+01/11/24: Learning Log 6
+
+* Now I am going to figure out how to rotate my pacman position from right to left.
+* I tried to create an orbiting cone while moving from right to left but that did not work.
+* So instead I decided to make the maze move while having pac man still in the moving box.
+```html
+<a-scene background="color: black">
+            <a-box color="blue" position="-9 9 -10" height="2"  depth="2" width="12" animation="property: position; to: 1 9  -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
+            <a-box color="blue" position="9 9 -10" height="2"  depth="2" width="12" animation="property: position; to: 19 9  -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
+            <a-box color="blue" position="-14 0.5 -10" height="15"  depth="2 "width="2" animation="property: position; to: -4 0.5  -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
+            <a-box color="blue" position="14 0.5 -10" height="15"  depth="2 "width="2" animation="property: position; to: 24 0.5  -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
+            <a-box color="pink" position="0 9 -10" height="2" depth="2" width="6" animation="property: position; to: 10 9 -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
+            <a-camera position ="0 0 20"></a-camera>
+            <a-cylinder color="yellow" position="-10 0 -10" theta-start="130" theta-length="280" side="double" rotation="90 0 0" animation="property: position; to: 22 0  -10; dur: 1000; dir: alternate; easing: linear; loop: true"
+            animation__2="property: rotation; loop: true; to: 90 180 0; dur: 1000; easing: linear; dir: alternate"></a-cylinder>
+            <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30" animation="property: position; to: 10 -8 -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
+        </a-scene>
+```
