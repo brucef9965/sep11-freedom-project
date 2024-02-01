@@ -78,3 +78,55 @@ Project: A 3d video game
             <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30" animation="property: position; to: 10 -8 -10; dur: 1000; dir: alternate; easing: linear; loop: true"></a-box>
         </a-scene>
 ```
+---
+01/22/24: Learning Log 7
+
+* My final step on animating my components is making my component revolve or orbit a specific component.
+* I decided to remove the moving box and make pacman become a brown square while the sphere orbits it.
+* I used this <a href = "https://www.youtube.com/watch?v=p3mNNZ356Ko&list=PL8MkBHej75fJD-HveDzm4xKrciC5VfYuV&index=14">video</a> to help me animate my components.
+* In order for me to learn how a component rotates, I put eight different types of sphere to rotate in a certain path while all of them were together.
+```html
+<a-scene background="color: black">
+            <a-camera position ="0 0 15"></a-camera>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: 360 360 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="indigo" radius="2" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: -360 360 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="indigo" radius="2" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: 360 -360 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="indigo" radius="2" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: -360 -360 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="indigo" radius="2" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: 0 360 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="purple" radius="3" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: 0 -360 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="purple" radius="3" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: -360 0 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="purple" radius="3" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity position="0 0 -10" animation="property: rotation; loop: true; to: 360 0 0; dur: 2000; easing: linear">
+                <a-sphere position="0 0 -10" color="purple" radius="3" animation="property: rotation; loop: true; to: 0 0 0; dur: 2000; easing: linear">
+                </a-sphere>
+            </a-entity>
+        </a-scene>
+```
