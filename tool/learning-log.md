@@ -7,7 +7,7 @@ Project: A 3d video game
 ---
 
 10/23/23: Learning Log 1
- 
+
 * I used <a href = "https://aframe.io/">Aframe</a> and <a href = "https://threejs.org/">Three.js</a>
 * I used an aframe code, put it to jsbin, and then replace the shapes with a stick figure.
 * I have no challenges for now.
@@ -58,7 +58,7 @@ Project: A 3d video game
             animation__2="property: rotation; loop: true; to: 0 0 360 dur: 3000; easing: linear; dir: alternate"></a-cylinder>
             <a-box color="blue" position="0 -8 -10" height="2"  depth="2 "width="30"></a-box>
         </a-scene>
-``` 
+```
 ---
 01/11/24: Learning Log 6
 
