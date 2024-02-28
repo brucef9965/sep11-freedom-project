@@ -130,3 +130,13 @@ Project: A 3d video game
             </a-entity>
         </a-scene>
 ```
+---
+02/12/24: Learning Log 8
+
+* For the past other learning logs, I have been using a cylinder component shaped like pac man to help me learn how animating my components work.
+* I then tested out all the sphere by making them orbit in different directions.
+* Now I will attempt to change the color of <a-sky> primitive. The purpose of this is to learn how to use js on aframe and also may be useful to create a 3d game.
+* 
+```html
+
+```
