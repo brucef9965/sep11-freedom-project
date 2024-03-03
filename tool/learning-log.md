@@ -136,7 +136,19 @@ Project: A 3d video game
 * For the past other learning logs, I have been using a cylinder component shaped like pac man to help me learn how animating my components work.
 * I then tested out all the sphere by making them orbit in different directions.
 * Now I will attempt to change the color of <a-sky> primitive. The purpose of this is to learn how to use js on aframe and also may be useful to create a 3d game.
-* 
+* Unfortunately, I was having struggles and difficulties figuring out on how to change colors in Aframe. I tried stuff such as looking at videos like <a href="https://www.youtube.com/watch?v=JDAdQV4YWRc">this</a>. However, I overcame this challenge by finally looking at an example on <a href="https://stackoverflow.com/questions/55777043/how-can-i-animate-change-the-color-of-a-torus-in-a-frame">Slack overview </a>to see the mistake I made and finally saw my <a href="https://jsbin.com/nocereboqe/edit?html,output">progress.</a> This required no javascript.
 ```html
+<a-scene>
+        <a-camera position="0 5 52"></a-camera>
+        <a-sky src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmuKayjQ5MSvKRRPMEvraM8D_H9Jx6tPovcw&usqp=CAU" color="midnightblue"
+            animation="property: components.material.material.color;
+                       type: color;
+                       to: lightblue;
+                       dur: 10000;
+                       dir: alternate;
+                       loop: true"></a-sky>
+        <a-sphere src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpL29-azKl8xrOtZoq7oh7oT4oVnJdfdIuqA&usqp=CAU" position="0 -50 -30" radius="9" animation="property: position; to: 0 60 -30; dur: 10000; easing: linear; dir: alternate; loop: true"></a-sphere>
 
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="300" height="100" repeat="2 1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Rc2LohplON-jQVZpyTN9jxD0O4SwccJ9-g&usqp=CAU"></a-plane>
+    </a-scene>
 ```
