@@ -160,7 +160,7 @@ Project: A 3d video game
 * Then I <a href="https://jsbin.com/fayuvewuso/edit?html,output">rotated</a> the box, while making the primitive revolve also as well.
 * I finally created an <a href="https://jsbin.com/fayuvewuso/edit?html,output">a-scene</a> that shows that the <b>a-sky</b> primitive changing color from lightblue to darkblue.
 * Now I plan on animating a scale using an <b>a-box</b>. This is what I did, I used an <b>a-box</b> to scale the primitive to see the size of the primitive increase by  height, width, and depth one time. 
-This is the <a href="https://jsbin.com/?html,output">codes</a> below of me animating using a scale.
+This is the <a href="https://jsbin.com/?html,output">codes</a> below of me animating using a scale. 
 ```html
 <a-scene>
         <a-camera position="0 5 52"></a-camera>
