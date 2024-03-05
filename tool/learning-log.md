@@ -24,7 +24,7 @@ Project: A 3d video game
     </head>
 </html>
 ```
-* So I want to learn how to animate my 3D model below. So I decided to make a 3d structure where the primitives are moving. Some of these challenges is learning how to animate a certain primitive. I looked at an example of an <a-box></a-box> code being animated to rotate 360 degrees.
+* So I want to learn how to animate my 3D model below. So I decided to make a 3d structure where the primitives are moving. Some of these challenges is learning how to animate a certain primitive. I looked at an example of an <b>a-box</b> code being animated to rotate 360 degrees.
 ```html
 <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
         <a-sphere position="5 0 0" color="mediumseagreen"></a-sphere>
@@ -149,6 +149,51 @@ Project: A 3d video game
                        loop: true"></a-sky>
         <a-sphere src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpL29-azKl8xrOtZoq7oh7oT4oVnJdfdIuqA&usqp=CAU" position="0 -50 -30" radius="9" animation="property: position; to: 0 60 -30; dur: 10000; easing: linear; dir: alternate; loop: true"></a-sphere>
 
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="300" height="100" repeat="2 1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Rc2LohplON-jQVZpyTN9jxD0O4SwccJ9-g&usqp=CAU"></a-plane>
+    </a-scene>
+```
+---
+03/04/24: Learning Log 9
+
+* Well I finally did, I learned how to animate the <b>primitives</b> such as <b>a-box</b> and <b>a-sky</b>. 
+* First I tried <a href="https://jsbin.com/fayuvewuso/edit?html,output">moving</a> the box from one place to another such as right, left, up , and down.
+* Then I <a href="https://jsbin.com/fayuvewuso/edit?html,output">rotated</a> the box, while making the primitive revolve also as well.
+* I finally created an <a href="https://jsbin.com/fayuvewuso/edit?html,output">a-scene</a> that shows that the <b>a-sky</b> primitive changing color from lightblue to darkblue.
+* Now I plan on animating a scale using an <b>a-box</b>. This is what I did, I used an <b>a-box</b> to scale the primitive to see the size of the primitive increase by  height, width, and depth one time. 
+This is the <a href="https://jsbin.com/?html,output">codes</a> below of me animating using a scale.
+```html
+<a-scene>
+        <a-camera position="0 5 52"></a-camera>
+        <a-sky src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmuKayjQ5MSvKRRPMEvraM8D_H9Jx6tPovcw&usqp=CAU" color="midnightblue"
+            animation="property: components.material.material.color;
+                       type: color;
+                       to: lightblue;
+                       dur: 10000;
+                       dir: alternate;
+                       loop: true"></a-sky>
+        <a-sphere src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpL29-azKl8xrOtZoq7oh7oT4oVnJdfdIuqA&usqp=CAU" position="0 -50 -30" radius="10" animation="property: position; to: 0 140 -140; dur: 10000; easing: linear; dir: alternate; loop: true"></a-sphere>
+
+        <a-box color="green" position="-24 0.5 -10" height="15"  depth="1 "width="2"
+        animation="property: scale; to: 2 2 2; dur: 5000; dir: alternate; easing: linear; loop: false"
+        animation__2="property: position; to: -24 15 -10; dur: 5000; dir: alternate; easing: linear; loop: false"
+        animation__color="property: components.material.material.color;
+        type: color;
+        to: saddlebrown;
+        dur: 5000;
+        dir: alternate
+        loop: false"></a-box>
+
+        <a-box color="green" position="24 0.5 -10" height="15"  depth="1 "width="2"
+        animation="property: scale; to: 2 2 2; dur: 5000; dir: alternate; easing: linear; loop: false"
+        animation__2="property: position; to: 24 15 -10; dur: 5000; dir: alternate; easing: linear; loop: false"
+        animation__color="property: components.material.material.color;
+        type: color;
+        to: saddlebrown;
+        dur: 5000;
+        dir: alternate;
+        loop: false"></a-box>
+        <a-sphere color="green" position="24 -30 -8" radius="8" animation="property: position; to: 24 30 -10; dur: 5000; easing: linear; dir: alternate; loop: false"></a-sphere>
+        <a-sphere color="green" position="-24 -30 -8" radius="8" animation="property: position; to: -24 30 -10; dur: 5000; easing: linear; dir: alternate; loop: false"></a-sphere>
         <a-plane position="0 0 -4" rotation="-90 0 0" width="300" height="100" repeat="2 1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Rc2LohplON-jQVZpyTN9jxD0O4SwccJ9-g&usqp=CAU"></a-plane>
     </a-scene>
 ```
