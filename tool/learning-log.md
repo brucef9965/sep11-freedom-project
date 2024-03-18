@@ -201,7 +201,7 @@ This is the <a href="https://jsbin.com/?html,output">codes</a> below of me anima
 
 * Javascript and DOM are often used for Aframe websites and projects.
 
-* I found a basic <b>Aframe</a> javascript setup.
+* I found a basic <b>Aframe</b> javascript setup.
 ```html
 <a-scene log="Hello, Scene!">
   <a-box log="Hello, Box!"></a-box>
@@ -217,7 +217,7 @@ AFRAME.registerComponent('log', {
   }
 });
 ``` 
-* This code shows console log component being registered before <b>a-scene</a> and applying it to the HTML components from Aframe.
+* This code shows console log component being registered before <b>a-scene</b> and applying it to the HTML components from Aframe.
 
 * So I decide to learn how to make a component while using javascript.
 * This is the code I used and tinkered with.
