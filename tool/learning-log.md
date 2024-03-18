@@ -197,3 +197,24 @@ This is the <a href="https://jsbin.com/?html,output">codes</a> below of me anima
         <a-plane position="0 0 -4" rotation="-90 0 0" width="300" height="100" repeat="2 1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Rc2LohplON-jQVZpyTN9jxD0O4SwccJ9-g&usqp=CAU"></a-plane>
     </a-scene>
 ```
+03/18/24: Learning Log 10
+
+* Javascript and DOM are often used for Aframe websites and projects.
+
+* I found a basic <b>Aframe</a> javascript setup.
+```html
+<a-scene log="Hello, Scene!">
+  <a-box log="Hello, Box!"></a-box>
+</a-scene>
+```
+```js
+AFRAME.registerComponent('log', {
+  schema: {type: 'string'},
+
+  init: function () {
+    var stringToLog = this.data;
+    console.log(stringToLog);
+  }
+});
+``` 
+* This code shows console log component being registered before <b>a-scene</a> and applying it to the HTML components from Aframe.
