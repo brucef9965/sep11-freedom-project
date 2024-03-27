@@ -201,7 +201,7 @@ This is the <a href="https://jsbin.com/?html,output">codes</a> below of me anima
 
 * Javascript and DOM are often used for Aframe websites and projects.
 
-* I found a basic <b>Aframe</a> javascript setup.
+* I found a basic <b>Aframe</b> javascript setup.
 ```html
 <a-scene log="Hello, Scene!">
   <a-box log="Hello, Box!"></a-box>
@@ -217,4 +217,39 @@ AFRAME.registerComponent('log', {
   }
 });
 ``` 
-* This code shows console log component being registered before <b>a-scene</a> and applying it to the HTML components from Aframe.
+* This code shows console log component being registered before <b>a-scene</b> and applying it to the HTML components from Aframe.
+
+* So I decide to learn how to make a component while using javascript.
+* This is the code I used and tinkered with.
+```html
+<a-scene>
+              <a-box color="#EF2D5E" position="0 1 -4" change-color-on-hover="color: blue"></a-box>
+
+              <a-camera><a-cursor></a-cursor></a-camera>
+            </a-scene>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            // JS
+            AFRAME.registerComponent('change-color-on-hover', {
+    schema: {
+      color: {default: 'red'}
+    },
+
+    init: function () {
+      var data = this.data;
+      var el = this.el;  // <a-box>
+      var defaultColor = el.getAttribute('material').color;
+
+      el.addEventListener('mouseenter', function () {
+        el.setAttribute('color', data.color);
+      });
+
+      el.addEventListener('mouseleave', function () {
+        el.setAttribute('color', defaultColor);
+      });
+    }
+  });
+```
+* So basically the above is about the mouse with a circle that can be controlled and everytime it touches the box it changes color.
