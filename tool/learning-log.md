@@ -253,3 +253,52 @@ AFRAME.registerComponent('log', {
   });
 ```
 * So basically the above is about the mouse with a circle that can be controlled and everytime it touches the box it changes color.
+---
+03/25/34 Learning Log 11
+
+* It turns out the Javascript examples is still confusing. So I decided to learn more about entities and how to use them. 
+
+* This is an example on how we can make a square using the entity component.
+```html
+  <a-scene>
+              <a-camera position="0 0 5"></a-camera>
+              <a-entity geometry="primitive: box" material="color: red">
+  </a-scene>
+```
+* You can use <b>geometry</b> and add primitive to get any shape you like such as sphere and cone.
+```html
+            <a-scene>
+                <a-camera position="0 0 5">
+                    <a-cursor></a-cursor>
+                </a-camera>
+                <a-entity position="-2 0 0" geometry="primitive: sphere" material="color: red">
+                <a-entity position="2 0 0" geometry="primitive: box" material="color: orangered">
+                <a-entity position="2 0 0" geometry="primitive: octahedron" material="color: orange">
+            </a-scene>
+```
+
+* However I decided to create an a-scene where the animation involves an event.
+```html
+<a-scene>
+
+            <a-entity look-controls cursor="rayOrigin: mouse"></a-entity>
+
+            <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
+                   event-set__enter="_event: mouseenter; color: #026fc9"
+                   animation="property: rotation;
+                     pauseEvents: mouseenter;
+                     resumeEvents: mouseleave;
+                     dur: 1000;
+                     fill: forwards;
+                     to: 0 360 0;
+                     dir: alternate;
+                     loop: true"
+                   event-set__leave="_event: mouseleave; color: #4CC3D9">
+            </a-box>
+
+            
+
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+            <a-sky color="#ECECEC"></a-sky>
+          </a-scene>
+```
