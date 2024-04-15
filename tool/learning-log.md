@@ -313,7 +313,7 @@ AFRAME.registerComponent('log', {
 
 * I was having difficulties with the keys for Aframe so I instead decided to do sound.
 
-* This is how an <b>a-sound</a> is used.
+* This is how an <b>a-sound</b> is used.
 
 ```html
 <a-scene>
@@ -394,4 +394,72 @@ AFRAME.registerComponent('log', {
         </script>
     </body>
 </html>
+```
+
+---
+
+04/15/24: Learning Log 13
+
+* I finally fixed my mistake with playing music on my website
+
+```html
+<a-scene>
+            <a-camera position="0 0 0">
+                <a-cursor></a-cursor>
+            </a-camera>
+                <a-sky color="gray"></a-sky>
+            <a-sphere
+                    radius="5"
+                    material="color: red"
+                    position="0 0 -10"
+                    change-color="color: purple">
+            </a-sphere>
+
+
+                <a-sound src="src: url(champion.mp3)" autoplay="true" position="0 0 0" volume="3"></a-sound>
+
+
+
+
+        </a-scene>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            // JS
+            AFRAME.registerComponent('change-color', {
+                schema: {
+                    color: {default: 'red'}
+                },
+
+                init: function () {
+                    var data = this.data;
+                    var el = this.el;  // <a-box>
+                    var defaultColor = el.getAttribute('material').color;
+
+                    el.addEventListener('mouseenter', function () {
+                        el.setAttribute('color', data.color);
+                    });
+
+                    el.addEventListener('mouseleave', function () {
+                        el.setAttribute('color', defaultColor);
+                    });
+                }
+            });
+    </script>
+```
+* As you can see the sound works however, I would like to turn this into an entity. So this is the result I got by turning this into an entity.
+```html
+<a-scene>
+    <a-camera position="0 0 0">
+        <a-cursor></a-cursor>
+    </a-camera>
+    <a-sky color="gray"></a-sky>
+    <a-entity geometry="primitive: sphere; radius: 5"
+                material="color: red"
+                position="0 0 -10"
+                change-color="color: purple"
+                sound="src: url(champion.mp3); autoplay: true; volume: 3">
+    </a-entity>
+</a-scene>
 ```
