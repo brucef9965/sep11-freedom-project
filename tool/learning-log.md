@@ -253,3 +253,213 @@ AFRAME.registerComponent('log', {
   });
 ```
 * So basically the above is about the mouse with a circle that can be controlled and everytime it touches the box it changes color.
+---
+
+03/25/34 Learning Log 11
+
+* It turns out the Javascript examples is still confusing. So I decided to learn more about entities and how to use them. 
+
+* This is an example on how we can make a square using the entity component.
+```html
+  <a-scene>
+              <a-camera position="0 0 5"></a-camera>
+              <a-entity geometry="primitive: box" material="color: red">
+  </a-scene>
+```
+* You can use <b>geometry</b> and add primitive to get any shape you like such as sphere and cone.
+```html
+            <a-scene>
+                <a-camera position="0 0 5">
+                    <a-cursor></a-cursor>
+                </a-camera>
+                <a-entity position="-2 0 0" geometry="primitive: sphere" material="color: red">
+                <a-entity position="2 0 0" geometry="primitive: box" material="color: orangered">
+                <a-entity position="2 0 0" geometry="primitive: octahedron" material="color: orange">
+            </a-scene>
+```
+
+* However I decided to create an a-scene where the animation involves an event.
+```html
+<a-scene>
+
+            <a-entity look-controls cursor="rayOrigin: mouse"></a-entity>
+
+            <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
+                   event-set__enter="_event: mouseenter; color: #026fc9"
+                   animation="property: rotation;
+                     pauseEvents: mouseenter;
+                     resumeEvents: mouseleave;
+                     dur: 1000;
+                     fill: forwards;
+                     to: 0 360 0;
+                     dir: alternate;
+                     loop: true"
+                   event-set__leave="_event: mouseleave; color: #4CC3D9">
+            </a-box>
+
+            
+
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+            <a-sky color="#ECECEC"></a-sky>
+          </a-scene>
+```
+---
+
+04/8/24: Learning Log 12
+
+* I learned how to make aframe interact with the mouse with it by changing colors, and now I must learn how to use aframe with keyboards.
+
+* I notice that the keyboard will involve this primitive <b>a-camera</b>.
+
+* I was having difficulties with the keys for Aframe so I instead decided to do sound.
+
+* This is how an <b>a-sound</b> is used.
+
+```html
+<a-scene>
+  <a-sound src="src: url(click.mp3)" autoplay="true" position="0 2 5"></a-sound>
+</a-scene>
+```
+
+* This is the code I used to make a sound with music.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <style>
+            /* CSS */
+
+        </style>
+
+        <title>Pokemon</title>
+    </head>
+    <body>
+        <!-- HTML -->
+
+        <a-scene>
+            <a-camera position="0 0 0">
+                <a-cursor></a-cursor>
+            </a-camera>
+                <a-sky color="gray"></a-sky>
+            <a-sphere
+                    radius="5"
+                    material="color: red"
+                    position="0 0 -10"
+                    change-color="color: purple">
+            </a-sphere>
+
+            <a-assets>
+                <a-audio id="cynthia" src="https://epsilon.vgmsite.com/soundtracks/pokemon-diamond-and-pearl-super-music-collection/agmpuios/2-67%20Battle%21%20Champion.mp3" preload="auto"></a-audio>
+            </a-assets>
+
+            <a-entity sound="src: #cynthia"></a-entity>
+
+        </a-scene>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            // JS
+            AFRAME.registerComponent('change-color', {
+                schema: {
+                    color: {default: 'red'}
+                },
+
+                init: function () {
+                    var data = this.data;
+                    var el = this.el;  // <a-box>
+                    var defaultColor = el.getAttribute('material').color;
+
+                    el.addEventListener('mouseenter', function () {
+                        el.setAttribute('color', data.color);
+                    });
+
+                    el.addEventListener('mouseleave', function () {
+                        el.setAttribute('color', defaultColor);
+                    });
+                }
+            });
+
+
+
+        </script>
+    </body>
+</html>
+```
+
+---
+
+04/15/24: Learning Log 13
+
+* I finally fixed my mistake with playing music on my website
+
+```html
+<a-scene>
+            <a-camera position="0 0 0">
+                <a-cursor></a-cursor>
+            </a-camera>
+                <a-sky color="gray"></a-sky>
+            <a-sphere
+                    radius="5"
+                    material="color: red"
+                    position="0 0 -10"
+                    change-color="color: purple">
+            </a-sphere>
+
+
+                <a-sound src="src: url(champion.mp3)" autoplay="true" position="0 0 0" volume="3"></a-sound>
+
+
+
+
+        </a-scene>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            // JS
+            AFRAME.registerComponent('change-color', {
+                schema: {
+                    color: {default: 'red'}
+                },
+
+                init: function () {
+                    var data = this.data;
+                    var el = this.el;  // <a-box>
+                    var defaultColor = el.getAttribute('material').color;
+
+                    el.addEventListener('mouseenter', function () {
+                        el.setAttribute('color', data.color);
+                    });
+
+                    el.addEventListener('mouseleave', function () {
+                        el.setAttribute('color', defaultColor);
+                    });
+                }
+            });
+    </script>
+```
+* As you can see the sound works however, I would like to turn this into an entity. So this is the result I got by turning this into an entity.
+```html
+<a-scene>
+    <a-camera position="0 0 0">
+        <a-cursor></a-cursor>
+    </a-camera>
+    <a-sky color="gray"></a-sky>
+    <a-entity geometry="primitive: sphere; radius: 5"
+                material="color: red"
+                position="0 0 -10"
+                change-color="color: purple"
+                sound="src: url(champion.mp3); autoplay: true; volume: 3">
+    </a-entity>
+</a-scene>
+```
