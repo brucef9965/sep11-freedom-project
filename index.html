@@ -18,35 +18,13 @@
         <!-- HTML -->
         <a-scene>
 
-            <a-sphere random-color></a-sphere>
-            <a-obj-model src="model.obj" random-color></a-obj-model>
-            <a-entity geometry="primitive: box; depth: 0.5; height: 0.5; width: 0.5"
-                      material="shader: standard"
-                      position="0 0.5 -2"
-                      random-color
-                      snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"></a-entity>
-            <a-assets>
-                <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-                <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
-            </a-assets>
+            <a-scene>
+                <a-assets>
+                  <img id="cynthia" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb8G96K6xsSxCk29KhDjA2b7hRhDJ7S5DCzg&s">
+                </a-assets>
+                <a-image src="#cynthia"></a-image>
+              </a-scene>
 
-            <a-cylinder id ="ground" src="#groundTexture" radius="32" height="0.1"></a-cylinder>
-
-            <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky>
-
-            <a-entity mixin="voxel" position="-1 0 -2"></a-entity>
-            <a-entity mixin="voxel" position="0 0 -2"></a-entity>
-            <a-entity mixin="voxel" position="0 1 -2"
-                animation="property: rotation; to: 0 360 0; loop: true"></a-entity>
-            <a-entity mixin="voxel" position="1 0 -2"></a-entity>
-
-            <a-entity id="player">
-                <a-entity id="teleHand" hand-controls="hand: left" blink-controls="collisionEntities: [mixin='voxel'], #ground"></a-entity>
-                <a-entity id="blockHand" hand-controls="hand: right" laser-controls raycaster="near: 0.5" intersection-spawn="event: click; mixin: voxel"></a-entity>
-                <a-camera>
-                    <a-cursor intersection-spawn="event: click; mixin: voxel"></a-cursor>
-                </a-camera>
-              </a-entity>
 
         </a-scene>
 
