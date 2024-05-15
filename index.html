@@ -67,7 +67,7 @@
             </a-assets>
               <a-image src="#diantha" height="5" width="5" position="30 0 -10"></a-image>
 
-            <a-sky></a-sky>
+            <a-sky src="stadium.jpeg"></a-sky>
 
             <a-entity id="kanto" position="-40 0 -10"
                       sound="src: url(Blue.mp3); autoplay: true; volume: 3; loop: false">
@@ -108,27 +108,90 @@
             // JS
 
             alert("Greetings!");
+
             var champion = prompt("Pick a champion you would like to play. You can choose blue, lance, steven, wallace, cynthia, iris, alder, or diantha.");
 
-            var music = document.querySelector('#kanto').components.sound.pause()
+            var blue = document.querySelector('#kanto');
+            var lance = document.querySelector('#johto');
+            var wallace = document.querySelector('#hoenn');
+            var steven = document.querySelector('#emerald');
+            var cynthia = document.querySelector('#sinnoh');
+            var alder = document.querySelector('#unova');
+            var iris = document.querySelector('#black');
+            var diantha = document.querySelector('#kalos');
 
             if (champion == "blue") {
                 alert("You are now listening to champion blue.");
-
+                lance.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             } else if (champion == "lance") {
                 alert("You are now listening to champion lance.");
+                blue.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             }  if (champion == "steven") {
                 alert("You are now listening to champion steven.");
+                lance.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                blue.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             } else if (champion == "wallace") {
                 alert("You are now listening to champion wallace.");
+                lance.components.sound.stopSound();
+                blue.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             } if (champion == "cynthia") {
                 alert("You are now listening to champion cynthia.");
+                lance.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                blue.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             } if (champion == "iris") {
                 alert("You are now listening to champion iris.");
+                lance.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                blue.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             } else if (champion == "alder") {
                 alert("You are now listening to champion alder.");
+                lance.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                blue.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                diantha.components.sound.stopSound();
             } if (champion == "diantha") {
                 alert("You are now listening to champion diantha.");
+                lance.components.sound.stopSound();
+                wallace.components.sound.stopSound();
+                steven.components.sound.stopSound();
+                cynthia.components.sound.stopSound();
+                alder.components.sound.stopSound();
+                iris.components.sound.stopSound();
+                blue.components.sound.stopSound();
             }
         </script>
     </body>
