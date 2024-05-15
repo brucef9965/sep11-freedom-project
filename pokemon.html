@@ -69,35 +69,35 @@
 
             <a-sky></a-sky>
 
-            <a-entity position="-40 0 -10"
+            <a-entity id="kanto" position="-40 0 -10"
                       sound="src: url(Blue.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="-30 0 -10"
+            <a-entity id="johto" position="-30 0 -10"
                       sound="src: url(Lance.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="-10 0 -10"
+            <a-entity id="hoenn" position="-10 0 -10"
                       sound="src: url(Steven.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="-20 0 -10"
+            <a-entity id="emerald" position="-20 0 -10"
                       sound="src: url(Wallace.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="0 0 -10"
+            <a-entity id="sinnoh" position="0 0 -10"
                       sound="src: url(champion.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="20 0 -10"
+            <a-entity id="unova" position="20 0 -10"
                       sound="src: url(Iris.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="10 0 -10"
+            <a-entity id="black" position="10 0 -10"
                       sound="src: url(Alder.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
 
-            <a-entity position="30 0 -10"
+            <a-entity id="kalos" position="30 0 -10"
                       sound="src: url(Diantha.mp3); autoplay: true; volume: 3; loop: false">
             </a-entity>
         </a-scene>
@@ -110,8 +110,11 @@
             alert("Greetings!");
             var champion = prompt("Pick a champion you would like to play. You can choose blue, lance, steven, wallace, cynthia, iris, alder, or diantha.");
 
+            var music = document.querySelector('#kanto').components.sound.pause()
+
             if (champion == "blue") {
                 alert("You are now listening to champion blue.");
+
             } else if (champion == "lance") {
                 alert("You are now listening to champion lance.");
             }  if (champion == "steven") {
